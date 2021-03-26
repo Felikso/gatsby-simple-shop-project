@@ -1,0 +1,34 @@
+.cart-value-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50%, 50%);
+    height: 28px;
+    width: 28px;
+    background: #1d680094;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+    border-radius: 50%;
+    text-indent: 0;
+    transition: 10s;
+/*     transition: -webkit-transform .2s .5s;
+    transition: transform .2s .5s;
+    transition: transform .2s .5s,-webkit-transform .2s .5s; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    list-style: none;
+    text-align: center;
+
+}
+
+.cart-value-circle-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(202, 1, 1);
+}
