@@ -1,0 +1,10 @@
+#___loader{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    inset: 0px;
+    background: black;
+    background: radial-gradient(circle, rgba(8,37,12,1) 57%, rgba(0,23,1,1) 90%);
+    z-index: 99999;
+}

@@ -22,8 +22,9 @@ import Grid from '@material-ui/core/Grid';
 import PageTransition from 'gatsby-plugin-page-transitions';
 
 //Components
-/* import MenuTabs from "../../components/MenuTabs" */
 const MenuTabs = loadable(() => import('../../components/MenuTabs'))
+
+
 
 
 
@@ -60,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
      <ThemeProvider theme={theme}>
                  <Provider store={store}>
             <ProductProvider>
-              <Suspense fallback={}>
-          <MenuTabs />
+
+            <MenuTabs />
        <div
          style={{
            margin: `64px auto 0`,
@@ -72,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
          </PageTransition>
  
        </div>
-       </Suspense>
+
      </ProductProvider>
      </Provider>
      </ThemeProvider>

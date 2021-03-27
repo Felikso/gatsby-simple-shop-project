@@ -133,7 +133,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     color: 'white',
-  }
+  },
+  anchorDefault: {
+    color: 'black',
+  },
 }));
 
 export default function MenuTabs() {
@@ -211,20 +214,20 @@ export default function MenuTabs() {
         <Divider />
         <List>
 
-            <ListItem button>
-              <Link to='/oferta'><ListItemIcon><LocalOfferIcon /></ListItemIcon></Link>
+        <Link to='/oferta' className={classes.anchorDefault}><ListItem button>
+              <ListItemIcon><LocalOfferIcon /></ListItemIcon>
               <ListItemText primary="oferta" />
-            </ListItem>
+            </ListItem></Link>
 
-            <ListItem button>
-            <Link to='/kontakt'><ListItemIcon className={classes.relativeBox}><PermPhoneMsgIcon /></ListItemIcon></Link>
+            <Link to='/kontakt' className={classes.anchorDefault}><ListItem button>
+            <ListItemIcon className={classes.relativeBox}><PermPhoneMsgIcon /></ListItemIcon>
               <ListItemText primary="kontakt" />
-            </ListItem>
+            </ListItem></Link>
 
-            <ListItem button>
-            <Link to='/oferta/koszyk'><ListItemIcon><div className={classes.relativeBox}><ShoppingCartIcon  /><CartValue /></div></ListItemIcon></Link>
+            <Link to='/oferta/koszyk' className={classes.anchorDefault}><ListItem button>
+            <ListItemIcon><div className={classes.relativeBox}><ShoppingCartIcon  /><CartValue /></div></ListItemIcon>
               <ListItemText primary="zamówienie" />
-            </ListItem>
+            </ListItem></Link>
 
         </List>
         <Divider />
@@ -240,10 +243,10 @@ export default function MenuTabs() {
               <ListItemText primary="wyślij mail" />
             </ListItem>
 
-            <ListItem button component="a"  href="/oferta/koszyk">
+            <Link to='/formularz-kontaktowy' className={classes.anchorDefault}><ListItem button>
               <ListItemIcon><RecentActorsIcon  /></ListItemIcon>
               <ListItemText primary="formularz kontaktowy" />
-            </ListItem>
+            </ListItem></Link>
 
           
         </List>
