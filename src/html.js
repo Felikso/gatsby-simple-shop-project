@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import LoaderSVG from './loaders/puff.svg'
+
 import './loaders/loader.css'
 
 export default function HTML(props) {
