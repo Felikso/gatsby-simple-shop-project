@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
                  <Provider store={store}>
             <ProductProvider>
               <Suspense fallback={}>
-     <MenuTabs />
+          <MenuTabs />
        <div
          style={{
            margin: `64px auto 0`,
