@@ -1,14 +1,15 @@
- import * as React from "react"
+ import React, { Suspense } from "react"
+
+ //lazy load
+import loadable from '@loadable/component'
+
  import PropTypes from "prop-types"
- import { useStaticQuery, graphql } from "gatsby"
- import MenuTabs from "../../components/MenuTabs"
+
 
  //Products providers
 import { Provider } from "react-redux"
 import { ProductProvider }  from "../../shoppingApp/context/context"
 import store from "../../shoppingApp/redux/store"
- 
-
  
  //Material UI
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -19,6 +20,10 @@ import Grid from '@material-ui/core/Grid';
 
 //Page transitions
 import PageTransition from 'gatsby-plugin-page-transitions';
+
+//Components
+/* import MenuTabs from "../../components/MenuTabs" */
+const MenuTabs = loadable(() => import('../../components/MenuTabs'))
 
 
 
@@ -55,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
      <ThemeProvider theme={theme}>
                  <Provider store={store}>
             <ProductProvider>
+              <Suspense fallback={}>
      <MenuTabs />
        <div
          style={{
@@ -66,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
          </PageTransition>
  
        </div>
-
+       </Suspense>
      </ProductProvider>
      </Provider>
      </ThemeProvider>
