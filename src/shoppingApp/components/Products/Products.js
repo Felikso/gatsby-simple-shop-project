@@ -1,4 +1,8 @@
 import React from "react";
+import { FixedSizeList } from 'react-window';
+import AutoSizer from "react-virtualized-auto-sizer"
+
+import './reactWindow.scss'
 //lazy load
 /* import loadable from '@loadable/component'
 
@@ -56,6 +60,21 @@ const Products = ({ sortedProducts, merch }) => {
 
   const classes = useStyles();
 
+  const items = sortedProducts
+  console.log(items)
+/*   const Row = ({ index, style }) => (
+    <div className={index % 2 ? "ListItemOdd" : "ListItemEven"} style={style}>
+      Row {index.id}
+    </div>
+    ) */
+
+    const materialCardsNew = sortedProducts.map((product, index)=>
+      <Grid item><ProductCard key={product.id} product={product} index={index} merch={merch} /></Grid>
+    )
+ 
+//react-window function to make a row:
+const Row = array=> ({ index }) => array[index] //is MaterialCard
+
   if(sortedProducts.length === 0){
     return (
       <Grid container xs={12} className={classes.noResultBox}>
@@ -68,11 +87,35 @@ const Products = ({ sortedProducts, merch }) => {
   return (
     <>
 
-    <Grid container spacing={3} className={classes.productsContainer}>
+{/*     <Grid container spacing={3} className={classes.productsContainer}>
       {sortedProducts.map((product, index)=> (
       <Grid item><ProductCard key={product.id} product={product} index={index} merch={merch} /></Grid>
       ))}
-    </Grid>
+    </Grid> */}
+
+{/* <AutoSizer>
+  {({ height, width, product, index  }) => (
+    <List
+      className="List"
+      height={100}
+      itemCount={1000}
+      itemSize={35}
+      width={100}
+      itemCount={items.length}
+    >
+      {Row(materialCardsNew)}
+    </List>
+  )}
+</AutoSizer> */}
+
+<FixedSizeList
+    height={500}
+    width={500}
+    itemSize={120}
+    itemCount={items.length}
+  >
+      {Row(materialCardsNew)}
+  </FixedSizeList>
     </>
   );
 };
