@@ -44,8 +44,6 @@ export const query = graphql`
 
 const Router = ({ current, data }) => {
   const merch = data.allWindowsJsonDataJson
-  console.log(merch)
-  console.log('merch')
   return (
     <Layout>
     <MyRouter>

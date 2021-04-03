@@ -1,6 +1,9 @@
  import React, { Suspense } from "react"
 
- //lazy load
+ //page loader
+ import PageLoader from '../../loaders/PageLoader'
+
+//lazy load
 import loadable from '@loadable/component'
 
  import PropTypes from "prop-types"
@@ -21,8 +24,11 @@ import Grid from '@material-ui/core/Grid';
 //Page transitions
 import PageTransition from 'gatsby-plugin-page-transitions';
 
+
 //Components
 const MenuTabs = loadable(() => import('../../components/MenuTabs'))
+
+
 
 
 
@@ -61,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
      <ThemeProvider theme={theme}>
                  <Provider store={store}>
             <ProductProvider>
-
+{/*           <PageLoader /> */}
             <MenuTabs />
        <div
          style={{

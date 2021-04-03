@@ -1,11 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import LoaderSVG from './loaders/puff.svg'
+ //page loader
 
-import './loaders/loader.css'
+import MainPageLoader from "./loaders/MainPageLoader"
+import OfferLoader from "./shoppingApp/components/OfferLoader/index"
+import PageLoader from './loaders/PageLoader'
 
 export default function HTML(props) {
+  
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -19,18 +22,7 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
-        <div
-    key={`loader`}
-              id="___loader"
-           >
-              <img 
-                src={LoaderSVG} 
-                alt="loading spinner" 
-                width="150" 
-                height="150"
-                fill='white'
-              />
-        </div>
+        <PageLoader />
         <div
           key={`body`}
           id="___gatsby"

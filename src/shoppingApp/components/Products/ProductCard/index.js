@@ -5,6 +5,8 @@ import VisibilitySensor from "react-visibility-sensor";
 //Gatsby
 import { Link } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill"
+import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 //Material Ui
 import { makeStyles } from '@material-ui/core/styles';
@@ -76,8 +78,39 @@ const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
   const imgSrc = prodImg[0].image.childImageSharp.fluid
 
   function onChange (isVisible) {
-    console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+/*     console.log('Element is now %s', isVisible ? 'visible' : 'hidden'); */
   }
+
+
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allWindowsJsonDataJson {
+          nodes {
+            slug
+            id
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+      
+    `
+  )
+  const allProducts = data.allWindowsJsonDataJson.nodes
+
+
+  let prodGatsbyImg = []
+  prodGatsbyImg = allProducts.filter(x => x.id === id)
+
+  const imgGatsbySrc = prodGatsbyImg[0].image.childImageSharp.gatsbyImageData
+
 
 
   
@@ -100,7 +133,7 @@ const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
       <Card className={classes.root} elevation={5} variant="outlined">
         <Link to={`/oferta/${alt}/${slug}`}>
             <CardActionArea className={classes.cardActionArea}>
-                    <Img 
+{/*                     <Img 
                     fluid={imgSrc}
                     fadeIn={true}
                     durationFadeIn={fadeInDuration}
@@ -112,7 +145,14 @@ const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
                     backgroundColor="radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(187,187,187,1) 100%)"
                     objectFit="contain"
                     className={classes.media}
+                    /> */}
+                    <GatsbyImage 
+                                key={id}
+                                image={imgGatsbySrc}
+                                className={classes.media}
+                    
                     />
+
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h6" component="h2" className={classes.typeName}>
                 {type_name}

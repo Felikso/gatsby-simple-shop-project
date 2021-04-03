@@ -1,12 +1,18 @@
 import React, {useState} from "react";
+//lazy load
+import loadable from '@loadable/component'
+
 import * as styles from "./Products.module.css";
 
-
+/* const ProductCard = loadable(() => import('./ProductCard'))
+ */
 // Redux
 import { connect } from "react-redux";
 
+
 import Product from "./Product/Product";
 import ProductCard from "./ProductCard"
+
 
 //Material Ui
 import { makeStyles } from '@material-ui/core/styles';
