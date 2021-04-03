@@ -4,8 +4,8 @@ import * as React from "react"
 import loadable from '@loadable/component'
 
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import BackgroundImage from 'gatsby-background-image'
+/* import { StaticImage } from "gatsby-plugin-image"
+import BackgroundImage from 'gatsby-background-image' */
 
 /* import Layout from "../containers/Layout"
 import SEO from "../components/seo" */

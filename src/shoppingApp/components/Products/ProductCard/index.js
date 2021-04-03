@@ -1,12 +1,12 @@
-import React, { useState, Suspense } from 'react';
+import React, { Suspense } from 'react';
 //fade-in
 import VisibilitySensor from "react-visibility-sensor";
 
 //Gatsby
 import { Link } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill"
+/* import Img from "gatsby-image/withIEPolyfill" */
 import { graphql, useStaticQuery } from 'gatsby'
-import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage} from 'gatsby-plugin-image'
 
 //Material Ui
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,11 +18,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grow from '@material-ui/core/Grow';
-
-
-
-
-
 
 
 // Redux
@@ -62,7 +57,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
+const ProductCard = React.memo(({ product, addToCart, loadCurrentItem, index, merch }) => {
   const classes = useStyles();
   const {
     type_name,
@@ -74,12 +69,14 @@ const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
 
   let prodImg = []
   prodImg = merch.nodes.filter(x => x.id === id)
-  const fadeInDuration = (500 + (20*id))
+/*   const fadeInDuration = (500 + (20*id))
   const imgSrc = prodImg[0].image.childImageSharp.fluid
-
+ */
   function onChange (isVisible) {
 /*     console.log('Element is now %s', isVisible ? 'visible' : 'hidden'); */
   }
+
+  console.log('cokolwiek')
 
 
   const data = useStaticQuery(
@@ -179,7 +176,7 @@ const ProductCard = ({ product, addToCart, loadCurrentItem, index, merch }) => {
     </Suspense>
     </>
   );
-}
+})
 
 const mapDispatchToProps = (dispatch) => {
     return {

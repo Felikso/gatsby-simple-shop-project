@@ -1,7 +1,48 @@
 {
     "plugins": [
-      "@loadable/babel-plugin"
-    ],
+      "@loadable/babel-plugin",
+      "@babel/transform-runtime",
+      [
+        "babel-plugin-import",
+        {
+          "libraryName": "@material-ui/core",
+          
+          "libraryDirectory": "esm",
+          "camel2DashComponentName": false
+        },
+        "@material-ui/core"
+      ],
+      [
+        "babel-plugin-import",
+        {
+          "libraryName": "@material-ui/icons",
+          
+          "libraryDirectory": "esm",
+          "camel2DashComponentName": false
+        },
+        "@material-ui/icons"
+      ],
+      [
+        "babel-plugin-import",
+        {
+          "libraryName": "@material-ui/styles",
+          
+          "libraryDirectory": "esm",
+          "camel2DashComponentName": false
+        },
+        "@material-ui/styles"
+      ],
+      [
+        "babel-plugin-import",
+        {
+          "libraryName": "@material-ui/core/colors",
+          
+          "libraryDirectory": "esm",
+          "camel2DashComponentName": false
+        },
+        "@material-ui/core/colors"
+      ]
+],
     "presets": [
       [
         "babel-preset-gatsby",

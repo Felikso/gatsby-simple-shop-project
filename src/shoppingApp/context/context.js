@@ -50,7 +50,7 @@ class ProductProvider extends Component {
       short_name, //rodzaj pvc, drewniane, aluminiowe...
     } = this.state;
     
-    let tempProducts = [...products];
+/*     let tempProducts = [...products]; */
     let currentProducts = [...products];
     // transform values
 

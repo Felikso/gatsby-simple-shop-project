@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { connect } from "react-redux";
 
 
-import ContactFormDialog from "./ContactForm/ContactFormDialog"
+/* import ContactFormDialog from "./ContactForm/ContactFormDialog" */
 
 import FormSummary from "./FormSummary"
 

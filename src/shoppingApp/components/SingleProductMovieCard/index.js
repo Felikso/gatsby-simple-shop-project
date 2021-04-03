@@ -55,10 +55,10 @@ const videoControl = () => {
 
 export default function SingleProductMovieCard({ current }) {
   const classes = useStyles();
-  const theme = useTheme();
-
+/*   const theme = useTheme();
+ */
   const {
-      link,
+/*       link, */
       video,
 
   } = current

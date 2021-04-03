@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 //lazy load
-import loadable from '@loadable/component'
+/* import loadable from '@loadable/component'
 
-import * as styles from "./Products.module.css";
+import * as styles from "./Products.module.css"; */
 
 /* const ProductCard = loadable(() => import('./ProductCard'))
  */
@@ -10,7 +10,7 @@ import * as styles from "./Products.module.css";
 import { connect } from "react-redux";
 
 
-import Product from "./Product/Product";
+/* import Product from "./Product/Product"; */
 import ProductCard from "./ProductCard"
 
 
@@ -52,7 +52,7 @@ const Products = ({ sortedProducts, merch }) => {
 
 
 
-  const [checked, setChecked] = React.useState(true);
+/*   const [checked, setChecked] = React.useState(true); */
 
   const classes = useStyles();
 
