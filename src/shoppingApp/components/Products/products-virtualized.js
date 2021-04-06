@@ -1,8 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./ProductsVirtualized.scss"
-
-import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage} from 'gatsby-plugin-image'
+import React, { useEffect } from "react";
 
 import {
   List,
@@ -66,32 +62,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Products = ({ sortedProducts, merch }) => {
 
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allWindowsJsonDataJson {
-          nodes {
-            slug
-            id
-            image {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-      
-    `
-  )
-  const allProducts = data.allWindowsJsonDataJson.nodes
-
-  console.log(allProducts)
-  console.log('allProducts')
-
 
 
 /*   const [checked, setChecked] = React.useState(true); */
@@ -114,28 +84,31 @@ const Products = ({ sortedProducts, merch }) => {
 const Row = array=> ({ index }) => array[index] //is MaterialCard
 
 
-const cache = useRef(
+const cache = React.useRef(
   new CellMeasurerCache({
     fixedWidth: true,
-    defaultHeight: 350,
+    defaultHeight: 100,
   })
 );
 
-const ITEMS_COUNT = sortedProducts.length
-const ITEM_SIZE = 350
+const ITEMS_COUNT = 98
+const ITEM_SIZE = 300
 
-const [people, setPeople] = useState([]);
+const [people, setPeople] = React.useState([sortedProducts]);
 
 /* setPeople(sortedProducts) */
 
-
-
-useEffect(() => {
+/* React.useEffect(() => {
   setPeople(
-    ...sortedProducts
+    [...Array(1000).keys()].map((key) => {
+      return {
+        id: key,
+        name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+        bio: faker.lorem.lines(Math.random() * 100),
+      };
+    })
   );
-  console.log('scrolll')
-});
+}, []); */
 
 /* const people = sortedProducts */
 
@@ -158,7 +131,31 @@ useEffect(() => {
       ))}
     </Grid> */}
 
-{/* <div style={{ width: "100%", height: "100vh" }}>
+{/* <AutoSizer>
+  {({ height, width, product, index  }) => (
+    <List
+      className="List"
+      height={100}
+      itemCount={1000}
+      itemSize={35}
+      width={100}
+      itemCount={items.length}
+    >
+      {Row(materialCardsNew)}
+    </List>
+  )}
+</AutoSizer> */}
+
+{/* <FixedSizeList
+    height={1000}
+    width={1000}
+    itemSize={120}
+    itemCount={items.length}
+  >
+      {Row(materialCardsNew)}
+  </FixedSizeList> */}
+
+<div style={{ width: "100%", height: "100vh" }}>
         <AutoSizer>
           {({ width, height }) => (
             <List
@@ -189,76 +186,7 @@ useEffect(() => {
             />
           )}
         </AutoSizer>
-      </div> */}
-<div className="auto-sizer-box">
-<AutoSizer>
-    {({ height, width }) => {
-      const itemsPerRow = Math.floor(width / (ITEM_SIZE/1.5));
-      const rowCount = Math.ceil(ITEMS_COUNT / itemsPerRow);
-      
-      return (
-        <List
-          className='List'
-          width={width}
-          height={height}
-          rowCount={rowCount}
-          rowHeight={ITEM_SIZE}
-          rowRenderer={
-            ({ index, key, style }) => {
-              const items = [];
-              const products = [];
-              let prod = [];
-              const fromIndex = index * itemsPerRow;
-              const toIndex = Math.min(fromIndex + itemsPerRow, ITEMS_COUNT);
-              const oneProduct = sortedProducts;
-
-/*               for (let i = fromIndex; i < toIndex; i++) {
-                items.push(
-                  <div
-                    className='Item'
-                    key={i}
-                  >
-                    Item {sortedProducts[i].type_name}
-                  </div>
-                )
-              } */
-
-              for (let i = fromIndex; i < toIndex; i++) {
-                items.push(
-                  <div
-/*                     className='Item' */
-                    key={i}
-                  >
-                    Item {sortedProducts[i].type_name}
-                  </div>
-                )
-              }
-
-              for (let i = fromIndex; i < toIndex; i++) {
-                let product = sortedProducts[i]
-                products.push(
- 
-<Grid key={i} item><ProductCard  product={product} index={index} merch={merch} /></Grid>
-           
-                )
-              }
-              return (
-                <div
-                  className='Row'
-                  key={key}
-                  style={style}
-                >
-                  
-                  {products}
-                </div>
-              )
-            }
-          }
-        />
-      )
-    }}
-  </AutoSizer>
-  </div>
+      </div>
     </>
   );
 };

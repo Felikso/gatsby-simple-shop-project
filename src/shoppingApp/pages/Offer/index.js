@@ -5,6 +5,7 @@ import ProductsFilter from "../../components/ProductsFilter"
 import {ProductConsumer, withProductConsumer} from '../../context/context'
 import windowsData from "../../data/windowsData"
 import Products from "../../components/Products/Products"
+import AutoSizeProducts from "../../components/AutoSizeProducts"
 
 
 //Material Ui
@@ -34,6 +35,7 @@ function Offer({context, merch }) {
         <OfferLoader title="wczytywanie oferty" />
         <ProductsFilter products={products} merch={merch}/>
 
+       {/*  <AutoSizeProducts sortedProducts={sortedProducts} cards={sortedProducts} merch={merch}/> */}
         <Products sortedProducts={sortedProducts} merch={merch}/>
 </>
       );

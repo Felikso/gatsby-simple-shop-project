@@ -2,11 +2,14 @@ import React, { Suspense } from 'react';
 //fade-in
 import VisibilitySensor from "react-visibility-sensor";
 
+
+
 //Gatsby
 import { Link } from "gatsby";
 /* import Img from "gatsby-image/withIEPolyfill" */
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage} from 'gatsby-plugin-image'
+
 
 //Material Ui
 import { makeStyles } from '@material-ui/core/styles';
@@ -29,7 +32,7 @@ import {
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 280,
+    maxWidth: 200,
     background: 'rgb(255,255,255)',
     background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(187,187,187,1) 100%);',
   },
@@ -46,9 +49,6 @@ const useStyles = makeStyles({
   cardActionArea:{
 
   },
-/*   cardContent: {
-    background: 'blue',
-  }, */
   cardActions: {
     justifyContent: 'space-between',
   },
@@ -69,14 +69,11 @@ const ProductCard = React.memo(({ product, addToCart, loadCurrentItem, index, me
 
   let prodImg = []
   prodImg = merch.nodes.filter(x => x.id === id)
-/*   const fadeInDuration = (500 + (20*id))
-  const imgSrc = prodImg[0].image.childImageSharp.fluid
- */
+
   function onChange (isVisible) {
 /*     console.log('Element is now %s', isVisible ? 'visible' : 'hidden'); */
   }
 
-  console.log('cokolwiek')
 
 
   const data = useStaticQuery(
@@ -147,6 +144,7 @@ const ProductCard = React.memo(({ product, addToCart, loadCurrentItem, index, me
                                 key={id}
                                 image={imgGatsbySrc}
                                 className={classes.media}
+                                loading="eager"
                     
                     />
 
