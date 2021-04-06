@@ -144,7 +144,7 @@ const ProductCard = React.memo(({ product, addToCart, loadCurrentItem, index, me
                                 key={id}
                                 image={imgGatsbySrc}
                                 className={classes.media}
-                                loading="eager"
+/*                                 loading="eager" */
                     
                     />
 
