@@ -16,7 +16,9 @@ import Cart from "../shoppingApp/components/Cart/Cart";
 import SingleItem from "../shoppingApp/components/SingleItem/SingleItem";
 import Offer from "../shoppingApp/pages/Offer" */
 
+
 const Layout = loadable(() => import('../containers/Layout'))
+
 
 const Cart = loadable(() => import('../shoppingApp/components/Cart/Cart'))
 const SingleProduct = loadable(() => import('../shoppingApp/pages/SingleProduct'))
@@ -46,6 +48,7 @@ const Router = ({ current, data }) => {
   const merch = data.allWindowsJsonDataJson
   return (
     <Layout>
+{/*           <SEO title="Oferta" /> */}
     <MyRouter>
 
               <Offer  path="/oferta" merch={merch} />

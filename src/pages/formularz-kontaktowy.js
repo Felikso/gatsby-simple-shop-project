@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../containers/Layout"
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 
 //lazy load
 import loadable from '@loadable/component'

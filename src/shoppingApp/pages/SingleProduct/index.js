@@ -1,5 +1,6 @@
 import React from "react";
 /* import * as styles from "./SingleItem.module.css"; */
+import SEO from '../../../components/SEO'
 
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/Shopping/shopping-actions";
@@ -18,7 +19,7 @@ import Grid from '@material-ui/core/Grid';
 
 const SingleItem = ({ current, addToCart, merch }) => {
 
-  console.log(merch)
+
 
   const {
     slug,
@@ -28,6 +29,11 @@ const SingleItem = ({ current, addToCart, merch }) => {
     id,
     price,
   } = current
+
+  const title = 'Oferta';
+	const description = `${long_name} - w ofercie Ventus Trade Okna.🐯 Wspólnie stwórzmy doskonały wygląd Twojego Domu.🏡`;
+	const image = `https://www.okna.ventus-trade.pl/assets/img/products/main-types/${slug}.png`;
+	const metaSlug = `/oferta/${slug}`;
 
   let attrArray = []
 
@@ -40,9 +46,25 @@ const SingleItem = ({ current, addToCart, merch }) => {
 
 
     <>
-                <Link to="/oferta" className="btn-primary">
-              wróć do oferty
-            </Link>
+            <SEO
+				title={title}
+				description={description}
+				image={image}
+				slug={metaSlug}
+			>
+				<script type='application/ld+json'>
+					{`{
+						'@context': 'https://schema.org',
+						'@type': 'Organization',
+						'@id': 'https://okna.ventus-trade.pl${metaSlug}',
+						'headline': ${title},
+						'description': ${description}
+					}`}
+				</script>
+			</SEO>
+        <Link to="/oferta" className="btn-primary">
+            wróć do oferty
+        </Link>
 
 
 <Link to="/oferta" className='a-back'> Powrót </Link>
@@ -58,7 +80,7 @@ const SingleItem = ({ current, addToCart, merch }) => {
 
 <main className="single-product-box">
 <Grid container xs={12}>
-<img src={`https://www.okna.ventus-trade.pl/assets/img/products/main-types/${slug}.png`} />
+<img src={`https://www.okna.ventus-trade.pl/assets/img/products/main-types${slug}.png`} />
     <div>
     <ul>
             {

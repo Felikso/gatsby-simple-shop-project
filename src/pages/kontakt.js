@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 
 import Layout from "../containers/Layout"
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 
 
 const ContactPage = () => (

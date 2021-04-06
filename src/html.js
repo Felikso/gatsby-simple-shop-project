@@ -25,7 +25,7 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
 
-        <PageLoader />
+{/*         <PageLoader /> */}
 
         <div
           key={`body`}

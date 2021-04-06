@@ -1,13 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `Ventus Trade Okna`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Opis strony`,
     author: `@Felikso`,
+    lang: `pl`,
+    siteUrl: `https://www.okna.ventus-trade.pl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

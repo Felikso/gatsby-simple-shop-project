@@ -1,10 +1,10 @@
 
-export const onInitialClientRender = () => {
+/* export const onInitialClientRender = () => {
     setTimeout(function() {
         document.getElementById("___loader").style.display = "none"
     }, 0)
 }
-
+ */
 
 // ES5 way
 // exports.onClientEntry = () => {

@@ -11,7 +11,7 @@ import BackgroundImage from 'gatsby-background-image' */
 import SEO from "../components/seo" */
 
 const Layout = loadable(() => import('../containers/Layout'))
-const SEO = loadable(() => import('../components/seo'))
+const SEO = loadable(() => import('../components/SEO'))
 //components
 /* import HeroHomeText from "../components/HeroHomeText"
 
@@ -27,6 +27,10 @@ const StyledBackgroundSection = loadable(() => import('../components/StyledBackg
 /* import '../mainCss/background-image.css' */
 
 function IndexPage(props) {
+  const title = 'Ventus Trade Okna';
+	const description = 'Strona główna Ventus Trade Okna.';
+	const image = 'https://okna.ventus-trade.pl/images/logo-ventus-trade-okna.png';
+	const slug = '/';
 
   const data = useStaticQuery(
     graphql`
@@ -56,7 +60,22 @@ const imageDesktop = data.desktopImage.childImageSharp.fluid
   return (
         <Layout>
 
-        <SEO title="Home" />
+<SEO
+				title={title}
+				description={description}
+				image={image}
+				slug={slug}
+			>
+				<script type='application/ld+json'>
+					{`{
+						'@context': 'https://schema.org',
+						'@type': 'Organization',
+						'@id': 'https://okna.ventus-trade.pl${slug}',
+						'headline': ${title},
+						'description': ${description}
+					}`}
+				</script>
+			</SEO>
 
 {/*         <BackgroundImage
           className="home-background-image"

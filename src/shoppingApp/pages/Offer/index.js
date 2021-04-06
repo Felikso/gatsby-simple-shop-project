@@ -1,4 +1,11 @@
 import React from 'react'
+
+//lazy load
+import loadable from '@loadable/component'
+
+import SEO from '../../../components/SEO'
+
+/* const SEO = loadable(() => import('../../../components/SEO')) */
 import OfferLoader from '../../components/OfferLoader'
 import ProductsFilter from "../../components/ProductsFilter"
 
@@ -23,15 +30,54 @@ const onInitialClientRender = () => {
 
 
 function Offer({context, merch }) {
+  const title = 'Oferta';
+	const description = 'Strona prezentuje aktualną ofertę produktów, z których skomponujemy dla Państwa właściwie spersonalizowany projekt.';
+	const image = 'https://okna.ventus-trade.pl/images/logo-ventus-trade-okna.png';
+	const slug = '/oferta';
 
     const {loading, sortedProducts, products} = context;
 
     if(loading){
-      return <OfferLoader title='wczytywanie produktów' />;
+      return (
+        <>
+        <SEO
+				title={title}
+				description={description}
+				image={image}
+				slug={slug}
+			>
+				<script type='application/ld+json'>
+					{`{
+						'@context': 'https://schema.org',
+						'@type': 'Organization',
+						'@id': 'https://okna.ventus-trade.pl${slug}',
+						'headline': ${title},
+						'description': ${description}
+					}`}
+				</script>
+			</SEO>
+      <OfferLoader title='wczytywanie produktów' />
+      </>);
     }
     onInitialClientRender()
     return(
 <>
+<SEO
+				title={title}
+				description={description}
+				image={image}
+				slug={slug}
+			>
+				<script type='application/ld+json'>
+					{`{
+						'@context': 'https://schema.org',
+						'@type': 'Organization',
+						'@id': 'https://okna.ventus-trade.pl${slug}',
+						'headline': ${title},
+						'description': ${description}
+					}`}
+				</script>
+			</SEO>
         <OfferLoader title="wczytywanie oferty" />
         <ProductsFilter products={products} merch={merch}/>
 

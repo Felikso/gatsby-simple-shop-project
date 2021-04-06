@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./ProductsVirtualized.scss"
 
+
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage} from 'gatsby-plugin-image'
 
