@@ -1,5 +1,5 @@
-import React, { memo } from "react"
-/* import { GatsbyImage } from "gatsby-plugin-image" */
+/* import React, { memo } from "react"
+
 import GatsbyImage from "gatsby-image"
 
 import { graphql, useStaticQuery } from 'gatsby'
@@ -103,10 +103,6 @@ const Cell = memo(({ columnIndex, rowIndex, style, data, product, addToCart, loa
     console.log(card.id)
 
 
-/*     let prodCardImg = []
-    prodCardImg = imageData.allWindowsJsonDataJson.filter(x => x.id === id) */
-  
-/*     const imgCardSrc = prodCardImg[0].image.childImageSharp.gatsbyImageData */
   
     console.log(imageData.allWindowsJsonDataJson)
     
@@ -128,7 +124,7 @@ const Cell = memo(({ columnIndex, rowIndex, style, data, product, addToCart, loa
             <GatsbyImage
               title={card.type_name}
               alt={card.type_name}
-/*               image={productsImage} */
+
               fluid={card.image.childImageSharp.fluid}
             />
             <h2>{card.type_name}</h2>
@@ -147,4 +143,4 @@ const Cell = memo(({ columnIndex, rowIndex, style, data, product, addToCart, loa
     };
   };
   
-  export default connect(null, mapDispatchToProps)(Cell);
+  export default connect(null, mapDispatchToProps)(Cell); */

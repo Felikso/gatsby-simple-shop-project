@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+/* import React, { memo } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import { graphql, useStaticQuery } from 'gatsby'
@@ -110,3 +110,4 @@ const mapStateToProps = (state) => {
   };
   
   export default connect(mapStateToProps)(Cards);
+ */

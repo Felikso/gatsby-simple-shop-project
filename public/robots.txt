@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.okna.ventus-trade.pl/sitemap.xml
+Host: https://www.okna.ventus-trade.pl
